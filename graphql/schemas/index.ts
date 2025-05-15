@@ -35,11 +35,12 @@ export const typeDefs = gql`
   type Query {
     helloQuery: String
     getAllTasks: [Task!]!
+    getFinishedTasks: [Task!]!
   }
 
   type Mutation {
     sayHello(name: String!): String
-    createTask(input: CreateTaskInput!): Task!
+    addTask(input: CreateTaskInput!): Task!
     updateTask(taskId: ID!, input: UpdateTaskInput!): Task!
   }
 `;
