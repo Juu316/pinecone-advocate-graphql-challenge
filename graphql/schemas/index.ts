@@ -14,6 +14,9 @@ export const typeDefs = gql`
     updatedAt: Date
     userId: String!
   }
+  input GetFinishedTasksInput {
+    userId: String!
+  }
 
   input CreateTaskInput {
     taskName: String!
@@ -24,23 +27,23 @@ export const typeDefs = gql`
   }
 
   input UpdateTaskInput {
+    taskId: String
     taskName: String
     description: String
     priority: Int
     isDone: Boolean
     tagsToAdd: [String]
     tagsToRemove: [String]
+    userId: String!
   }
 
   type Query {
-    helloQuery: String
     getAllTasks: [Task!]!
-    getFinishedTasks: [Task!]!
+    getFinishedTasks(input: GetFinishedTasksInput!): [Task!]!
   }
 
   type Mutation {
-    sayHello(name: String!): String
     addTask(input: CreateTaskInput!): Task!
-    updateTask(taskId: ID!, input: UpdateTaskInput!): Task!
+    updateTask(input: UpdateTaskInput!): Task!
   }
 `;

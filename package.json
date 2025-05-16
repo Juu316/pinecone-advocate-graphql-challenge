@@ -2,6 +2,9 @@
   "name": "backend",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
     "dev": "yarn generate && next dev",
     "build": "yarn generate && next build",
