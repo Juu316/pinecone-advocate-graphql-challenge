@@ -36,6 +36,10 @@ export const typeDefs = gql`
     tagsToRemove: [String]
     userId: String!
   }
+  input DeleteTaskInput {
+    userId: String!
+    taskId: String!
+  }
 
   type Query {
     getAllTasks: [Task!]!
@@ -45,5 +49,6 @@ export const typeDefs = gql`
   type Mutation {
     addTask(input: CreateTaskInput!): Task!
     updateTask(input: UpdateTaskInput!): Task!
+    deleteTask(input: DeleteTaskInput!): String
   }
 `;
